@@ -29,12 +29,12 @@
 
 	// Use 'postCreateCommand' to run commands after the container is created.
 	// "postCreateCommand": "uname -a",
-	"postStartCommand": "bash ./.devcontainer/php8.0-nginx/scripts/postStartCommand.sh",
+	// "postStartCommand": "bash ./.devcontainer/php8.0-nginx/scripts/postStartCommand.sh",
 
 	// Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
-	"remoteUser": "vscode",
-	"features": {
-		"terraform": "latest",
-		"azure-cli": "latest"
-	}
+	// "remoteUser": "vscode",
+	// "features": {
+	// 	"terraform": "latest",
+	// 	"azure-cli": "latest"
+	// }
 }
