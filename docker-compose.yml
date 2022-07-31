@@ -1,14 +1,22 @@
-service: '3'
+version: '3'
 services:
-  web:
-    image: nginx
+  nginx:
+    image: ghcr.io/dzeyelid/azure-webapp-php-nginx
     networks:
       - backend
+    ports:
+      - "80:80"
+    volumes:
+      - ./app:/var/www/html
 
   php-fpm:
     image: php:fpm
     networks:
       - backend
+    ports:
+      - "9000:9000"
+    volumes:
+      - ./app:/var/www/html
 
 networks:
   backend:

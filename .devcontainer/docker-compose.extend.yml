@@ -1,6 +1,7 @@
 version: '3'
 services:
-  your-service-name-here:
+  workspace:
+    build: ./docker/php
     volumes:
       # Mounts the project folder to '/workspace'. While this file is in .devcontainer,
       # mounts are relative to the first file in the list, which is a level up.

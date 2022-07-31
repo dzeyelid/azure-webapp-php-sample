@@ -2,8 +2,8 @@
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.238.1/containers/ubuntu
 {
 	"name": "PHP 8.1 fpm + Nginx",
-	"dockerComposerFile": ["../../docker-compose.yml", "docker-composer.extend.yml"],
-	"service": "web",
+	"dockerComposeFile": ["../docker-compose.yml", "docker-compose.extend.yml"],
+	"service": "workspace",
 	"workspaceFolder": "/workspace",
 	// "build": {
 	// 	"dockerfile": "Dockerfile",
