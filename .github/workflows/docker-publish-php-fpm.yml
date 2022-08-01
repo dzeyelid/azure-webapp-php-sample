@@ -1,17 +1,27 @@
-name: Build and deploy Docker image
+name: Build and push php-fpm
 
 on:
   push:
     branches: [ "main" ]
+    paths:
+    - .github/workflows/docker-publish-php-fpm.yml
+    - docker/php-fpm/**
+    - app/**
   pull_request:
     branches: [ "main" ]
+    paths:
+    - .github/workflows/docker-publish-php-fpm.yml
+    - docker/php-fpm/**
+    - app/**
   workflow_dispatch:
 
 env:
   # Use docker.io for Docker Hub if empty
   REGISTRY: ghcr.io
   # github.repository as <account>/<repo>
-  IMAGE_NAME: ${{ github.repository_owner }}/azure-webapp-php-sample/web-nginx
+  IMAGE_NAME: ${{ github.repository_owner }}/azure-webapp-php-sample/php-fpm
+  CONTEXT_PATH: .
+  DOCKERFILE_PATH: ./docker/php-fpm/Dockerfile
 
 jobs:
   build:
@@ -64,7 +74,8 @@ jobs:
         id: build-and-push
         uses: docker/build-push-action@ac9327eae2b366085ac7f6a2d02df8aa8ead720a
         with:
-          context: ./docker/nginx
+          context: ${{ env.CONTEXT_PATH }}
+          file: ${{ env.DOCKERFILE_PATH }}
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
