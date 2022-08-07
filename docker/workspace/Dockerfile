@@ -11,5 +11,5 @@ RUN docker-php-ext-install \
 
 RUN rm -rf /var/lib/apt/lists/*
 
-RUN curl -s https://raw.githubusercontent.com/composer/getcomposer.org/0a51b6fe383f7f61cf1d250c742ec655aa044c94/web/installer | php -- --quiet \
+RUN curl -s https://raw.githubusercontent.com/composer/getcomposer.org/76a7060ccb93902cd7576b67264ad91c8a2700e2/web/installer | php -- --quiet \
   && mv composer.phar /usr/local/bin/composer
