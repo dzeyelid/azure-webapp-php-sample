@@ -1,14 +1,14 @@
 version: '3'
 services:
   web-nginx:
-    image: ghcr.io/dzeyelid/azure-webapp-php-sample/web-nginx
+    image: example.com/web-nginx
     networks:
       - backend
     ports:
       - "8000:80"
 
   php-fpm:
-    image: ghcr.io/dzeyelid/azure-webapp-php-sample/php-fpm
+    image: example.com/php-fpm
     networks:
       - backend
     ports:
