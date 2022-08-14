@@ -1,0 +1,13 @@
+version: '3'
+services:
+  web-nginx:
+    image: ${AZURE_CONTAINER_REGISTRY_NAME}.azurecr.io/web-nginx
+    ports:
+      - "8000:80"
+
+  php-fpm:
+    image: ${AZURE_CONTAINER_REGISTRY_NAME}.azurecr.io/php-fpm
+    ports:
+      - "9000:9000"
+    volumes:
+      ${WEBAPP_STORAGE_HOME}/LogFiles:/var/www/html/storage/logs
