@@ -12,7 +12,8 @@ env:
   REGISTRY: crplayground20220710webappphp.azurecr.io
 
 jobs:
-  build:
+  build-code:
+    name: Build code
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -36,8 +37,9 @@ jobs:
         name: app
         path: app
 
-  push:
-    needs: build
+  build-and-push-containers:
+    needs: build-code
+    name: Build and push containers
     runs-on: ubuntu-latest
     strategy:
       matrix:
